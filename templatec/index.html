@@ -1,0 +1,31 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDF to PNG Converter</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>PDF to PNG Converter</h1>
+
+    <!-- 파일 업로드 폼 -->
+    <form id="upload-form" enctype="multipart/form-data">
+      <input type="file" id="pdf-file" name="pdf" accept="application/pdf" required />
+      <button type="submit">업로드 및 변환</button>
+    </form>
+
+    <!-- 다운로드 버튼 -->
+    <div id="download-section" style="display: none;">
+      <p>변환이 완료되었습니다!</p>
+      <a id="download-link" href="#" download>
+        <button>PNG 다운로드</button>
+      </a>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
