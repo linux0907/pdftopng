@@ -1,0 +1,46 @@
+/* 전체 폰트 설정 */
+body {
+  font-family: '돋움', Dotum, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 100px auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  color: #2e8b57; /* 짙은 초록색 */
+  margin-bottom: 30px;
+  font-size: 2.2em;
+}
+
+input[type="file"] {
+  padding: 12px;
+  font-size: 1.1em;
+  border: 2px solid #2e8b57;
+  border-radius: 8px;
+  width: 100%;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+button {
+  background-color: #ff69b4; /* 핑크 */
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  font-size: 1.1em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover

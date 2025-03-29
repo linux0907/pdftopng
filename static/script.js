@@ -17,27 +17,23 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.append("pdf", file);
 
     try {
-      // 버튼 비활성화 및 로딩 표시
-      uploadForm.querySelector("button").disabled = true;
-      uploadForm.querySelector("button").textContent = "변환 중...";
-
-      const response = await fetch("/convert", {
+      const response = await fetch("/upload", {
         method: "POST",
         body: formData,
       });
 
-      if (!response.ok) throw new Error("변환 실패");
+      if (!response.ok) {
+        throw new Error("서버 오류 또는 변환 실패");
+      }
 
-      const data = await response.json();
+      const result = await response.json();
 
-      // 다운로드 링크 표시
-      downloadLink.href = data.download_url;
+      // 변환된 파일 다운로드 링크 설정
+      downloadLink.href = result.download_url;
       downloadSection.style.display = "block";
     } catch (error) {
+      console.error("에러 발생:", error);
       alert("파일 업로드 또는 변환 중 오류가 발생했습니다.");
-      console.error(error);
-    } finally {
-      // 버튼 원래대로 복원
-      uploadForm.querySelector("button").disabled = false;
-      uploadForm.querySelector("button").textContent = "업로드 및 변환";
     }
+  });
+});
